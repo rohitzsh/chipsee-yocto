@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  chipsee-yocto:
+    container_name: "chipsee-yocto"
+    image: "chipsee-yocto"
+    build: "."
+    privileged: true
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    ipc: "host"
+    restart: "no"
+    cap_add:
+      - ALL 
+    volumes:
+      - ./build:/opt/yocto/build
+      - /lib/modules
+    devices:
+      - /dev/kvm

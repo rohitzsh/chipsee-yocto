@@ -1,0 +1,9 @@
+[submodule "overlay/opt/yocto/poky"]
+	path = overlay/opt/yocto/poky
+	url = git://git.yoctoproject.org/poky.git
+	branch = dunfell
+
+[submodule "overlay/opt/yocto/meta-chipsee"]
+	path = overlay/opt/yocto/meta-chipsee
+	url = git@github.com:rohitzsh/meta-chipsee.git
+	branch = initial-work
