@@ -29,6 +29,18 @@ clean_build() {
     done
 }
 
+if [ -z "$opt" ];then
+    echo >&2 "
+    Usage: ./make.sh [OPTIONS]
+
+    Options:
+        build       builds OS 
+        clean       cleans build folder (except downloads and sstate-cache directory) 
+        test        runs OS using qemu
+        CMD         any custom command to be executed by docker container"
+    exit 1
+fi
+
 case "$opt" in
     "build" )
         docker_cmd bitbake core-image-minimal
@@ -39,17 +51,7 @@ case "$opt" in
     "test" )
         docker_cmd runqemu qemuarm nographic
         ;;
-    *) 
-    echo >&2 "
-    Invalid option: $*
-
-    Usage: ./make.sh [OPTIONS]
-
-    Options:
-        build       builds OS 
-        clean       cleans build folder (except downloads and sstate-cache directory) 
-        test        runs OS using qemu 
-    ";
-    exit 1
+    *)
+        docker_cmd "$@"
     ;;
 esac
