@@ -10,6 +10,8 @@ opt="$1";
 
 docker_cmd() {
     local cmd=$*
+    mkdir -p build
+    chmod a+w build
     docker-compose build
     docker run --rm -it \
             --privileged \
