@@ -6,6 +6,7 @@ RUN apt-get update -y \
     chrpath \
     cpio \
     debianutils \
+    device-tree-compiler \
     diffstat \
     file \
     gawk \
