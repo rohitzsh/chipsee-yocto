@@ -45,7 +45,7 @@ fi
 
 case "$opt" in
     "build" )
-        docker_cmd bitbake core-image-minimal
+        docker_cmd bitbake chipsee-core-image-minimal
         ;;
     "clean" )
         clean_build
