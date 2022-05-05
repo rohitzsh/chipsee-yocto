@@ -36,6 +36,7 @@ Codename | Yocto Project Version | Release Date | Current Version    | Support L
       1. Copy `poky/meta-skeleton/recipes-kernel/hello-mod` to  `meta-chipsee/recipies-chipsee`. And replace driver files in `recipies-chipsee`. Edit `site.conf` and add `IMAGE_INSTALL_append += "driver_name"` `KERNEL_MODULE_AUTOLOAD += "driver_name"`. This will add bitbake to install driver recipe at image build.
       2. Create DriverTree for drivers by running `recipetool appendsrcfile path/to/meta-chipsee virtual/kernel /path/to/your.dts 'arch/${ARCH}/boot/dts/your.dts'`
       3. Edit `site.conf` and add `KERNEL_DEVICETREE += "your.dtb"`
+      4. run `bitbake -c cleansstate <RECIPE_NAME>` to clean any corrupted recipe state.
 
 ## Run
  * `./make build` : builds OS 
