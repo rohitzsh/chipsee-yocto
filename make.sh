@@ -36,10 +36,13 @@ if [ -z "$opt" ];then
     Usage: ./make.sh [OPTIONS]
 
     Options:
-        build       builds OS 
-        clean       cleans build folder (except downloads and sstate-cache directory) 
-        test        runs OS using qemu
-        CMD         any custom command to be executed by docker container"
+        build        builds OS 
+        clean        cleans recipe task 
+        clean-build  cleans build folder (except downloads and sstate-cache directory) 
+        clean-sstate cleans recipe sstate 
+        clean-all    cleans recipe all dependencies 
+        test         runs OS using qemu
+        CMD          any custom command to be executed by docker container"
     exit 1
 fi
 
@@ -48,7 +51,16 @@ case "$opt" in
         docker_cmd bitbake chipsee-core-image-minimal
         ;;
     "clean" )
+        docker_cmd bitbake virtual/kernel -c clean
+        ;;
+    "clean-build" )
         clean_build
+        ;;
+    "clean-all" )
+        docker_cmd bitbake virtual/kernel -c cleanall
+        ;;
+    "clean-sstate" )
+        docker_cmd bitbake virtual/kernel -c cleansstate
         ;;
     "test" )
         docker_cmd runqemu qemuarm nographic
