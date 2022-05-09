@@ -24,5 +24,5 @@ echo
 
 if [ -n "$CMD" ]; then
     echo "Running $> ${CMD}"
-    $CMD
+    eval $CMD
 fi
