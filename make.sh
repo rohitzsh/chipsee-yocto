@@ -41,7 +41,7 @@ if [ -z "$opt" ];then
         clean-build  cleans build folder (except downloads and sstate-cache directory) 
         clean-sstate cleans recipe sstate 
         clean-all    cleans recipe all dependencies 
-        test         runs OS using qemu
+        run          runs OS using qemu
         CMD          any custom command to be executed by docker container"
     exit 1
 fi
