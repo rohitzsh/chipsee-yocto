@@ -37,10 +37,11 @@ Codename | Yocto Project Version | Release Date | Current Version    | Support L
       2. Create DriverTree for drivers by running `recipetool appendsrcfile path/to/meta-chipsee virtual/kernel /path/to/your.dts 'arch/${ARCH}/boot/dts/your.dts'`
       3. Edit `site.conf` and add `KERNEL_DEVICETREE += "your.dtb"`
       4. run `bitbake -c cleansstate <RECIPE_NAME>` to clean any corrupted recipe state.
+      5. Test recipe by running `yocto-check-layer ../meta-chipsee` . Before running this command make sure that this recipe is not included in the `bblayers.conf`
 
 ## Run
  * `./make build` : builds OS 
- * `./make clean` : cleans build folder (except downloads and sstate-cache directory) 
- * `./make test`  : runs OS using qemu 
+ * `./make clean` : cleans build folder (except downloads and sstate-cache directory)  
+ * `./make run`   : runs OS using qemu
 
 OS image will be generated on `build/tmp/deploy/images` folder.
