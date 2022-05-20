@@ -25,7 +25,7 @@ docker_cmd() {
 
 clean_build() {
     for item in build/*; do
-        if [[ ! "$item" =~ (downloads|sstate-cache) ]]; then
+        if [[ ! "$item" =~ (downloads) ]]; then
             rm -rf "$item"
         fi
     done
@@ -37,10 +37,7 @@ if [ -z "$opt" ];then
 
     Options:
         build        builds OS 
-        clean        cleans recipe task 
-        clean-build  cleans build folder (except downloads and sstate-cache directory) 
-        clean-sstate cleans recipe sstate 
-        clean-all    cleans recipe all dependencies 
+        clean        cleans build folder (except downloads and sstate-cache directory) 
         run          runs OS using qemu
         CMD          any custom command to be executed by docker container"
     exit 1
@@ -51,18 +48,9 @@ case "$opt" in
         docker_cmd bitbake chipsee-core-image-minimal
         ;;
     "clean" )
-        docker_cmd bitbake virtual/kernel -c clean
-        ;;
-    "clean-build" )
         clean_build
         ;;
-    "clean-all" )
-        docker_cmd bitbake virtual/kernel -c cleanall
-        ;;
-    "clean-sstate" )
-        docker_cmd bitbake virtual/kernel -c cleansstate
-        ;;
-    "test" )
+    "run" )
         docker_cmd runqemu qemuarm nographic
         ;;
     *)
