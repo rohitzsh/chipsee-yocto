@@ -1,0 +1,19 @@
+[submodule "overlay/opt/yocto/poky"]
+	path = overlay/opt/yocto/poky
+	url = https://git.yoctoproject.org/poky
+	branch = dunfell
+
+[submodule "overlay/opt/yocto/meta-chipsee"]
+	path = overlay/opt/yocto/meta-chipsee
+	url = https://github.com/rohitzsh/meta-chipsee.git
+	branch = initial-work
+
+[submodule "overlay/opt/yocto/meta-openembedded"]
+	path = overlay/opt/yocto/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
+	branch = dunfell
+
+[submodule "overlay/opt/yocto/meta-raspberrypi"]
+	path = overlay/opt/yocto/meta-raspberrypi
+	url = https://git.yoctoproject.org/meta-raspberrypi
+	branch = dunfell
